@@ -1,17 +1,23 @@
 const twoSum = (nums, target) => {
+  // so here we are storing the value of nums and their indices into the arr variable
   const arr = nums
     .map((val, index) => [val, index])
     .sort((a, b) => a[0] - b[0]);
 
   let left = 0;
   let right = arr.length - 1;
-
+  // so  now we start our loop from both ends of the array
   while (left < right) {
+    // so here what are storing the value of first element of an array and last element into the sum
     const sum = arr[left][0] + arr[right][0];
+    // if the sum === target then we'll return the indices as soon as sum value
+    // equivalent to target [arr[left][1],arr[right][1]] this will be the indices
     if (sum === target) {
       return [arr[left][1], arr[right][1]];
+      // if sum will not be equal to target we will increment left 
     } else if (sum < target) {
       left++;
+      // and else we will decrement the right from at the end
     } else {
       right--;
     }
